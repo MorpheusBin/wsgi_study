@@ -36,8 +36,6 @@ class ShowVersion(object):
 
     @classmethod
     def factory(cls, global_conf, **kwargs):
-#        print 'factory'
-#        print "kwargs:", kwargs
         return ShowVersion(kwargs['version'])
 
 
