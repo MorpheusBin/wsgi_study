@@ -21,10 +21,6 @@ logger.addHandler(handler)
 
 
 class ShowVersion(object):
-    '''
-    app
-    '''
-
     def __init__(self, version):
         self.version = version
 
@@ -33,7 +29,7 @@ class ShowVersion(object):
         res.status = '200 OK'
         res.content_type = "text/plain"
         content = []
-        content.append("%s\n" % self.version)
+        content.append("Version is %s\n" % self.version)
         res.body = '\n'.join(content)
         return res(environ, start_response)
 
@@ -43,10 +39,6 @@ class ShowVersion(object):
 
 
 class LogFilter(object):
-    '''
-    Log
-    '''
-
     def __init__(self, app):
         self.app = app
 
