@@ -4,8 +4,8 @@ from oslo_config import cfg
 
 
 opts = [
-cfg.StrOpt('bind_host', default='0.0.0.0'),
-cfg.IntOpt('bind_port', default=9292),
+    cfg.StrOpt('bind_host', default='0.0.0.0'),
+    cfg.IntOpt('bind_port', default=8000),
 ]
 
 

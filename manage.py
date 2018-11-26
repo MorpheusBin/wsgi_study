@@ -6,12 +6,11 @@ from oslo_config import cfg
 from paste.deploy import loadapp
 from wsgiref.simple_server import make_server
 from webob import Response
-import config
 
 CONF = cfg.CONF
 
 logger = logging.getLogger(__name__)
-logger.setLevel(level = logging.INFO)
+logger.setLevel(level=logging.INFO)
 handler = logging.FileHandler("log.txt")
 handler.setLevel(logging.INFO)
 formatter = logging.Formatter('%(asctime)s - %(pathname)s - %(filename)s - %(funcName)s - %(lineno)d '
@@ -55,5 +54,5 @@ if __name__ == '__main__':
     config = "python_paste.ini"
     appname = "common"
     wsgi_app = loadapp("config:%s" % os.path.abspath(config), appname)
-    server = make_server(CONF.bind_host, 8000, wsgi_app)
+    server = make_server(CONF.bind_host, CONF.bind_port, wsgi_app)
     server.serve_forever()
